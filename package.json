@@ -1,0 +1,36 @@
+{
+  "name": "@moderation/moderation",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "build": "yarn workspaces foreach -Apt run build",
+    "clean": "yarn workspaces foreach -Apt run clean",
+    "lint": "yarn workspaces foreach -Apt run lint",
+    "dev": "yarn workspace moderation run dev"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "WoozyStudio <woozystudiocontact@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "@types/node": "24.1.0",
+    "typescript": "5.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/woozystudio/Moderation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/woozystudio/Moderation/issues"
+  },
+  "homepage": "https://github.com/woozystudio/Moderation#readme",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "packageManager": "yarn@4.9.2"
+}
