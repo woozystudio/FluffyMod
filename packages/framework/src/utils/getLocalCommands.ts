@@ -6,25 +6,21 @@ import { CommandPayload } from "../types/Command.js";
 import { fileCondition } from "./fileCondition.js";
 
 export async function getLocalCommands(client: ModerationClient) {
-  const localCommands: Command<CommandPayload>[] = [];
-  const commandsPath = client.commandsPath as string;
+	const localCommands: Command<CommandPayload>[] = [];
+	const commandsPath = client.commandsPath as string;
 
-  const folders = fs.readdirSync(commandsPath);
-  for (const folder of folders) {
-    const files = fs
-      .readdirSync(`${commandsPath}/${folder}`)
-      .filter(fileCondition);
+	const folders = fs.readdirSync(commandsPath);
+	for (const folder of folders) {
+		const files = fs.readdirSync(`${commandsPath}/${folder}`).filter(fileCondition);
 
-    for (const fileName of files) {
-      const modulePath = pathToFileURL(
-        `${commandsPath}/${folder}/${fileName}`
-      ).href;
-      const commandModule = await import(modulePath);
-      const CommandClass = commandModule.default;
-      const command = new CommandClass();
-      localCommands.push(command);
-    }
-  }
+		for (const fileName of files) {
+			const modulePath = pathToFileURL(`${commandsPath}/${folder}/${fileName}`).href;
+			const commandModule = await import(modulePath);
+			const CommandClass = commandModule.default;
+			const command = new CommandClass();
+			localCommands.push(command);
+		}
+	}
 
-  return localCommands;
+	return localCommands;
 }

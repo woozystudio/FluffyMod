@@ -1,9 +1,4 @@
-import {
-  BitFieldResolvable,
-  Client,
-  Collection,
-  GatewayIntentsString,
-} from "discord.js";
+import { BitFieldResolvable, Client, Collection, GatewayIntentsString } from "discord.js";
 import { ModerationClientOptions } from "../types/ModerationClientOptions.js";
 import { Command } from "./Command.js";
 import { CommandPayload } from "../types/Command.js";
@@ -12,44 +7,43 @@ import "dotenv/config";
 import { eventHandler } from "../handlers/eventHandler.js";
 
 export class ModerationClient {
-  public token: string;
-  public id: string;
-  public guildId?: string;
-  public intents: BitFieldResolvable<GatewayIntentsString, number> = [];
-  #client;
+	public token: string;
+	public id: string;
+	public guildId?: string;
+	public intents: BitFieldResolvable<GatewayIntentsString, number> = [];
+	#client;
 
-  public commands: Collection<string, Command<CommandPayload>> =
-    new Collection();
+	public commands: Collection<string, Command<CommandPayload>> = new Collection();
 
-  public commandsPath?: string;
-  public eventsPath?: string;
+	public commandsPath?: string;
+	public eventsPath?: string;
 
-  constructor(options: ModerationClientOptions) {
-    this.token = options.token;
-    this.id = options.id;
-    this.guildId = options.guildId;
+	constructor(options: ModerationClientOptions) {
+		this.token = options.token;
+		this.id = options.id;
+		this.guildId = options.guildId;
 
-    this.#client = new Client({
-      intents: options.intents,
-    });
+		this.#client = new Client({
+			intents: options.intents,
+		});
 
-    this.commandsPath = options.commandsPath;
-    this.eventsPath = options.eventsPath;
-  }
+		this.commandsPath = options.commandsPath;
+		this.eventsPath = options.eventsPath;
+	}
 
-  get client() {
-    return this.#client;
-  }
+	get client() {
+		return this.#client;
+	}
 
-  public async start(): Promise<void> {
-    try {
-      await eventHandler(this);
-      if (this.guildId) await registerCommands(this, this.guildId);
-      else await registerCommands(this);
-      await this.#client.login(this.token);
-    } catch (error) {
-      console.error("Failed to login:", error);
-      process.exit(1);
-    }
-  }
+	public async start(): Promise<void> {
+		try {
+			await eventHandler(this);
+			if (this.guildId) await registerCommands(this, this.guildId);
+			else await registerCommands(this);
+			await this.#client.login(this.token);
+		} catch (error) {
+			console.error("Failed to login:", error);
+			process.exit(1);
+		}
+	}
 }
