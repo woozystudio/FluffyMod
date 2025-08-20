@@ -1,1 +1,2 @@
-export const fileCondition = (fileName: string) => fileName.endsWith(".ts") || fileName.endsWith(".js");
+export const fileCondition = (fileName: string) =>
+	fileName.endsWith(".ts") || fileName.endsWith(".js");

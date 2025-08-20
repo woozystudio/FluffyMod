@@ -8,12 +8,16 @@ export async function eventHandler(client: ModerationClient) {
 
 		for (const localEvent of localEvents) {
 			if (localEvent.once) {
-				client.client.once(localEvent.name, (...args: ClientEvents[keyof ClientEvents]) =>
-					localEvent.execute(client, ...args),
+				client.client.once(
+					localEvent.name,
+					(...args: ClientEvents[keyof ClientEvents]) =>
+						localEvent.execute(client, ...args),
 				);
 			} else {
-				client.client.on(localEvent.name, (...args: ClientEvents[keyof ClientEvents]) =>
-					localEvent.execute(client, ...args),
+				client.client.on(
+					localEvent.name,
+					(...args: ClientEvents[keyof ClientEvents]) =>
+						localEvent.execute(client, ...args),
 				);
 			}
 		}

@@ -5,27 +5,27 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const commandsPath = path.join(
-  path.dirname(fileURLToPath(import.meta.url)),
-  "commands"
+	path.dirname(fileURLToPath(import.meta.url)),
+	"commands",
 );
 const eventsPath = path.join(
-  path.dirname(fileURLToPath(import.meta.url)),
-  "events"
+	path.dirname(fileURLToPath(import.meta.url)),
+	"events",
 );
 
 const client = new ModerationClient({
-  token: `${process.env.TOKEN}`,
-  id: `${process.env.CLIENT_ID}`,
-  guildId: `${process.env.GUILD_ID}`,
-  intents: [
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.GuildMembers,
-    GatewayIntentBits.MessageContent,
-  ],
+	token: `${process.env.TOKEN}`,
+	id: `${process.env.CLIENT_ID}`,
+	guildId: `${process.env.GUILD_ID}`,
+	intents: [
+		GatewayIntentBits.Guilds,
+		GatewayIntentBits.GuildMessages,
+		GatewayIntentBits.GuildMembers,
+		GatewayIntentBits.MessageContent,
+	],
 
-  commandsPath: commandsPath,
-  eventsPath: eventsPath,
+	commandsPath: commandsPath,
+	eventsPath: eventsPath,
 });
 
 client.start();

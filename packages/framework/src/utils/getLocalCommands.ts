@@ -11,10 +11,14 @@ export async function getLocalCommands(client: ModerationClient) {
 
 	const folders = fs.readdirSync(commandsPath);
 	for (const folder of folders) {
-		const files = fs.readdirSync(`${commandsPath}/${folder}`).filter(fileCondition);
+		const files = fs
+			.readdirSync(`${commandsPath}/${folder}`)
+			.filter(fileCondition);
 
 		for (const fileName of files) {
-			const modulePath = pathToFileURL(`${commandsPath}/${folder}/${fileName}`).href;
+			const modulePath = pathToFileURL(
+				`${commandsPath}/${folder}/${fileName}`,
+			).href;
 			const commandModule = await import(modulePath);
 			const CommandClass = commandModule.default;
 			const command = new CommandClass();

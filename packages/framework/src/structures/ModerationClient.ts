@@ -1,4 +1,9 @@
-import { BitFieldResolvable, Client, Collection, GatewayIntentsString } from "discord.js";
+import {
+	BitFieldResolvable,
+	Client,
+	Collection,
+	GatewayIntentsString,
+} from "discord.js";
 import { ModerationClientOptions } from "../types/ModerationClientOptions.js";
 import { Command } from "./Command.js";
 import { CommandPayload } from "../types/Command.js";
@@ -13,7 +18,8 @@ export class ModerationClient {
 	public intents: BitFieldResolvable<GatewayIntentsString, number> = [];
 	#client;
 
-	public commands: Collection<string, Command<CommandPayload>> = new Collection();
+	public commands: Collection<string, Command<CommandPayload>> =
+		new Collection();
 
 	public commandsPath?: string;
 	public eventsPath?: string;

@@ -12,10 +12,14 @@ export async function getEvents(client: ModerationClient) {
 
 	const folders = fs.readdirSync(eventsPath);
 	for (const folder of folders) {
-		const files = fs.readdirSync(`${eventsPath}/${folder}`).filter(fileCondition);
+		const files = fs
+			.readdirSync(`${eventsPath}/${folder}`)
+			.filter(fileCondition);
 
 		for (const fileName of files) {
-			const modulePath = pathToFileURL(`${eventsPath}/${folder}/${fileName}`).href;
+			const modulePath = pathToFileURL(
+				`${eventsPath}/${folder}/${fileName}`,
+			).href;
 			const eventModule = await import(modulePath);
 			const EventClass = eventModule.default;
 			const event = new EventClass();
