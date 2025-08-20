@@ -8,7 +8,8 @@
     "build:esm": "swc ./src --out-dir ./dist",
     "build": "yarn build:clean && yarn build:check && yarn build:esm",
     "start": "env-cmd node --enable-source-maps ./dist/index.js",
-    "dev": "yarn workspace @moderation/framework run build && yarn build && yarn start"
+    "dev:framework": "yarn workspace @moderation/framework run build && yarn build && yarn start",
+    "dev": "yarn build && yarn start"
   },
   "type": "module",
   "keywords": [],
