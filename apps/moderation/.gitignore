@@ -136,3 +136,6 @@ dist
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+
+# Test
+*test.ts
