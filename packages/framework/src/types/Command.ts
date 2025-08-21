@@ -7,5 +7,5 @@ export type CommandPayload = {
 	dmPermission?: boolean;
 	options?: ApplicationCommandOptionData[];
 
-	testMode?: boolean; // Optional, defaults to true
+	testMode: boolean; // Optional, defaults to true
 };

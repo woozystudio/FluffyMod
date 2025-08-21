@@ -11,4 +11,5 @@ export const avatarCommand: CommandPayload = {
 			type: ApplicationCommandOptionType.User,
 		},
 	],
+	testMode: false,
 };

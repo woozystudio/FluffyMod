@@ -12,4 +12,5 @@ export const userinfoCommand: CommandPayload = {
 			required: true,
 		},
 	],
+	testMode: false,
 };
