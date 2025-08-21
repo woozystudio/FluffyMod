@@ -44,6 +44,7 @@ export default class UserInfoCommand extends Command<typeof userinfoCommand> {
 		interaction.reply({
 			flags: [MessageFlags.IsComponentsV2, MessageFlags.Ephemeral],
 			components: [container],
+			allowedMentions: { parse: [] },
 		});
 	}
 }
