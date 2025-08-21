@@ -3,7 +3,7 @@ import { ApplicationCommandOptionType } from "discord.js";
 
 export const userinfoCommand: CommandPayload = {
 	name: "userinfo",
-	description: "Get information about a user.",
+	description: "Explore a user's public information on the server.",
 	options: [
 		{
 			name: "target",
