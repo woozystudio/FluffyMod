@@ -1,6 +1,6 @@
-import { Command } from "@moderation/framework";
-import { userinfoCommand } from "../../interactions/userinfo.js";
+import { Command, CommandPayload } from "@moderation/framework";
 import {
+	ApplicationCommandOptionType,
 	ChatInputCommandInteraction,
 	ContainerBuilder,
 	GuildMember,
@@ -11,9 +11,21 @@ import {
 	ThumbnailBuilder,
 } from "discord.js";
 
-export default class UserInfoCommand extends Command<typeof userinfoCommand> {
+export default class UserInfoCommand extends Command<CommandPayload> {
 	public constructor() {
-		super(userinfoCommand);
+		super({
+			name: "userinfo",
+			description: "Explore a user's public information on the server.",
+			options: [
+				{
+					name: "target",
+					description: "Select a server member.",
+					type: ApplicationCommandOptionType.User,
+					required: true,
+				},
+			],
+			testMode: false,
+		});
 	}
 
 	public async chatInput(interaction: ChatInputCommandInteraction) {

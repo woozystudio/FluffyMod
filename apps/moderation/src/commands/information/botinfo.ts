@@ -1,4 +1,4 @@
-import { Command, ModerationClient } from "@moderation/framework";
+import { Command, CommandPayload, ModerationClient } from "@moderation/framework";
 import {
 	ActionRowBuilder,
 	ButtonBuilder,
@@ -13,11 +13,14 @@ import {
 	TextDisplayBuilder,
 	ThumbnailBuilder,
 } from "discord.js";
-import { botinfoCommand } from "../../interactions/botinfo.js";
 
-export default class BotInfoCommand extends Command<typeof botinfoCommand> {
+export default class BotInfoCommand extends Command<CommandPayload> {
 	public constructor() {
-		super(botinfoCommand);
+		super({
+			name: "botinfo",
+			description: "Learn more about the bot.",
+			testMode: false,
+		});
 	}
 
 	public async chatInput(interaction: ChatInputCommandInteraction, client: ModerationClient) {

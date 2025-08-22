@@ -1,6 +1,6 @@
-import { Command } from "@moderation/framework";
-import { avatarCommand } from "../../interactions/avatar.js";
+import { Command, CommandPayload } from "@moderation/framework";
 import {
+	ApplicationCommandOptionType,
 	ChatInputCommandInteraction,
 	ContainerBuilder,
 	MediaGalleryBuilder,
@@ -8,9 +8,20 @@ import {
 	TextDisplayBuilder,
 } from "discord.js";
 
-export default class AvatarCommand extends Command<typeof avatarCommand> {
+export default class AvatarCommand extends Command<CommandPayload> {
 	public constructor() {
-		super(avatarCommand);
+		super({
+			name: "avatar",
+			description: "Get a user's avatar.",
+			options: [
+				{
+					name: "target",
+					description: "Select a server member.",
+					type: ApplicationCommandOptionType.User,
+				},
+			],
+			testMode: false,
+		});
 	}
 
 	public async chatInput(interaction: ChatInputCommandInteraction) {

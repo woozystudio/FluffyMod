@@ -1,4 +1,4 @@
-import { Command } from "@moderation/framework";
+import { Command, CommandPayload } from "@moderation/framework";
 import {
 	ChannelType,
 	ChatInputCommandInteraction,
@@ -9,11 +9,14 @@ import {
 	TextDisplayBuilder,
 	ThumbnailBuilder,
 } from "discord.js";
-import { guildinfoCommand } from "../../interactions/guildinfo.js";
 
-export default class GuildInfoCommand extends Command<typeof guildinfoCommand> {
+export default class GuildInfoCommand extends Command<CommandPayload> {
 	public constructor() {
-		super(guildinfoCommand);
+		super({
+			name: "guildinfo",
+			description: "Get a detailed summary of this server.",
+			testMode: false,
+		});
 	}
 
 	public async chatInput(interaction: ChatInputCommandInteraction) {

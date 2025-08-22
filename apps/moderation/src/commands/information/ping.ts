@@ -1,10 +1,13 @@
-import { Command } from "@moderation/framework";
+import { Command, CommandPayload } from "@moderation/framework";
 import { ChatInputCommandInteraction, MessageFlags } from "discord.js";
-import { pingCommand } from "../../interactions/ping.js";
 
-export default class PingCommand extends Command<typeof pingCommand> {
+export default class PingCommand extends Command<CommandPayload> {
 	public constructor() {
-		super(pingCommand);
+		super({
+			name: "ping",
+			description: "Replies with the ping!",
+			testMode: false,
+		});
 	}
 
 	public async chatInput(interaction: ChatInputCommandInteraction) {
