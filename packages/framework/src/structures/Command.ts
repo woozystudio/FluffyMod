@@ -1,5 +1,6 @@
 import { ApplicationCommandOptionData, ChatInputCommandInteraction } from "discord.js";
 import { CommandPayload } from "../types/Command.js";
+import { ModerationClient } from "./ModerationClient.js";
 
 export abstract class Command<C extends CommandPayload> {
 	public readonly name: string;
@@ -19,5 +20,5 @@ export abstract class Command<C extends CommandPayload> {
 		this.testMode = payload.testMode;
 	}
 
-	public abstract chatInput(interaction: ChatInputCommandInteraction): Promise<void> | void;
+	public abstract chatInput(interaction: ChatInputCommandInteraction, client?: ModerationClient): Promise<void> | void;
 }
