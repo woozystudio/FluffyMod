@@ -4,14 +4,9 @@ import "dotenv/config";
 import path from "path";
 import { fileURLToPath } from "url";
 
-const commandsPath = path.join(
-	path.dirname(fileURLToPath(import.meta.url)),
-	"commands",
-);
-const eventsPath = path.join(
-	path.dirname(fileURLToPath(import.meta.url)),
-	"events",
-);
+const commandsPath = path.join(path.dirname(fileURLToPath(import.meta.url)), "commands");
+const eventsPath = path.join(path.dirname(fileURLToPath(import.meta.url)), "events");
+const buttonsPath = path.join(path.dirname(fileURLToPath(import.meta.url)), "buttons");
 
 const client = new ModerationClient({
 	token: `${process.env.TOKEN}`,
@@ -26,6 +21,7 @@ const client = new ModerationClient({
 
 	commandsPath: commandsPath,
 	eventsPath: eventsPath,
+	buttonsPath: buttonsPath,
 });
 
 client.start();
