@@ -11,3 +11,7 @@ export * from "./utils/getEvents.js";
 export * from "./handlers/eventHandler.js";
 export * from "./structures/Event.js";
 export * from "./types/Event.js";
+export * from "./structures/Button.js";
+export * from "./types/Components.js";
+export * from "./utils/getButtons.js";
+export * from "./utils/registerComponents.js";
