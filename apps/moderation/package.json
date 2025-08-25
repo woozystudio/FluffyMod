@@ -21,6 +21,7 @@
 		"discord.js": "14.21.0",
 		"dotenv": "17.2.1",
 		"env-cmd": "10.1.0",
+		"mongoose": "8.18.0",
 		"path": "0.12.7",
 		"tsc-watch": "7.1.1"
 	},

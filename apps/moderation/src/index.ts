@@ -1,6 +1,7 @@
 import { ModerationClient } from "@moderation/framework";
 import { GatewayIntentBits } from "discord.js";
 import "dotenv/config";
+import { connect } from "mongoose";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -26,6 +27,10 @@ const client = new ModerationClient({
 
 	commandsPath: commandsPath,
 	eventsPath: eventsPath,
+});
+
+await connect(`${process.env.MONGODB_URI}`, { appName: "moderation-v1" }).then(() => {
+	console.log("☁️ Connected to MongoDB database.");
 });
 
 client.start();
