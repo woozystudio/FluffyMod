@@ -8,4 +8,5 @@ export type ModerationClientOptions = {
 
 	commandsPath?: string;
 	eventsPath?: string;
+	buttonsPath?: string;
 };

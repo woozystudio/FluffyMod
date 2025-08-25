@@ -5,14 +5,9 @@ import { connect } from "mongoose";
 import path from "path";
 import { fileURLToPath } from "url";
 
-const commandsPath = path.join(
-	path.dirname(fileURLToPath(import.meta.url)),
-	"commands",
-);
-const eventsPath = path.join(
-	path.dirname(fileURLToPath(import.meta.url)),
-	"events",
-);
+const commandsPath = path.join(path.dirname(fileURLToPath(import.meta.url)), "commands");
+const eventsPath = path.join(path.dirname(fileURLToPath(import.meta.url)), "events");
+const buttonsPath = path.join(path.dirname(fileURLToPath(import.meta.url)), "buttons");
 
 const client = new ModerationClient({
 	token: `${process.env.TOKEN}`,
@@ -27,6 +22,7 @@ const client = new ModerationClient({
 
 	commandsPath: commandsPath,
 	eventsPath: eventsPath,
+	buttonsPath: buttonsPath,
 });
 
 await connect(`${process.env.MONGODB_URI}`, { appName: "moderation-v1" }).then(() => {
