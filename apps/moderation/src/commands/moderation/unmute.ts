@@ -17,7 +17,7 @@ export default class UnMuteCommand extends Command<CommandPayload> {
 					required: true,
 				},
 			],
-			testMode: true,
+			testMode: false,
 		});
 	}
 
