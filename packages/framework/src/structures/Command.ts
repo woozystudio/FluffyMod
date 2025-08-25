@@ -20,5 +20,5 @@ export abstract class Command<C extends CommandPayload> {
 		this.testMode = payload.testMode;
 	}
 
-	public abstract chatInput(interaction: ChatInputCommandInteraction, client?: ModerationClient): Promise<void> | void;
+	public abstract chatInput(interaction: ChatInputCommandInteraction, client?: ModerationClient): void;
 }
