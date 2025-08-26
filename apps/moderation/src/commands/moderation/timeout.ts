@@ -28,7 +28,7 @@ export default class TimeoutCommand extends Command<CommandPayload> {
 					type: ApplicationCommandOptionType.String,
 				},
 			],
-			testMode: true,
+			testMode: false,
 		});
 	}
 

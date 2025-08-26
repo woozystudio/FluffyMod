@@ -21,7 +21,7 @@ export default class UnTimeoutCommand extends Command<CommandPayload> {
 					required: true,
 				},
 			],
-			testMode: true,
+			testMode: false,
 		});
 	}
 
