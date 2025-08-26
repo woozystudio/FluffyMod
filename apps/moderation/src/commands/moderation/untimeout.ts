@@ -32,7 +32,7 @@ export default class UnTimeoutCommand extends Command<CommandPayload> {
 		await member.timeout(null);
 
 		await interaction.reply({
-			content: `${Emoji.Success} The user ${target} has been untimeou successfully.`,
+			content: `${Emoji.Success} The user ${target} has been untimeout successfully.`,
 		});
 	}
 }
