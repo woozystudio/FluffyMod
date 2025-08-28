@@ -12,7 +12,7 @@ export default class BanCommand extends Command<CommandPayload> {
 		super({
 			name: "ban",
 			description: "Remove a member from the server with a ban.",
-			userPermissions: PermissionFlagsBits.BanMembers,
+			userPermissions: [PermissionFlagsBits.BanMembers],
 			options: [
 				{
 					name: "target",

@@ -7,7 +7,7 @@ export default class UnBanCommand extends Command<CommandPayload> {
 		super({
 			name: "unban",
 			description: "Unban a previously banned member..",
-			userPermissions: PermissionFlagsBits.BanMembers,
+			userPermissions: [PermissionFlagsBits.BanMembers],
 			options: [
 				{
 					name: "id",

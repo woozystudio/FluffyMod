@@ -15,7 +15,7 @@ export default class LockCommand extends Command<CommandPayload> {
 		super({
 			name: "lock",
 			description: "Remove write permissions for @everyone from a channel.",
-			userPermissions: PermissionFlagsBits.ManageChannels,
+			userPermissions: [PermissionFlagsBits.ManageChannels],
 			options: [
 				{
 					name: "channel",

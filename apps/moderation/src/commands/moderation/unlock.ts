@@ -15,7 +15,7 @@ export default class UnLockCommand extends Command<CommandPayload> {
 		super({
 			name: "unlock",
 			description: "Set write permissions for @everyone from a channel to default.",
-			userPermissions: PermissionFlagsBits.ManageChannels,
+			userPermissions: [PermissionFlagsBits.ManageChannels],
 			options: [
 				{
 					name: "channel",
