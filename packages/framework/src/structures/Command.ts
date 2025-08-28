@@ -5,7 +5,7 @@ import { ModerationClient } from "./ModerationClient.js";
 export abstract class Command<C extends CommandPayload> {
 	public readonly name: string;
 	public readonly description: string;
-	public readonly default_member_permissions?: bigint | bigint[];
+	public readonly default_member_permissions?: bigint[];
 	public readonly dm_permission?: boolean;
 	public readonly options?: ApplicationCommandOptionData[];
 
