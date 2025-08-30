@@ -4,6 +4,7 @@ export type CommandPayload = {
 	name: string;
 	description: string;
 	userPermissions?: bigint[];
+	botPermissions?: bigint | bigint[];
 	dmPermission?: boolean;
 	options?: ApplicationCommandOptionData[];
 

@@ -6,6 +6,7 @@ export abstract class Command<C extends CommandPayload> {
 	public readonly name: string;
 	public readonly description: string;
 	public readonly default_member_permissions?: bigint[];
+	public readonly bot_member_permissions?: bigint | bigint[];
 	public readonly dm_permission?: boolean;
 	public readonly options?: ApplicationCommandOptionData[];
 
@@ -15,6 +16,7 @@ export abstract class Command<C extends CommandPayload> {
 		this.name = payload.name;
 		this.description = payload.description;
 		this.default_member_permissions = payload.userPermissions;
+		this.bot_member_permissions = payload.botPermissions;
 		this.dm_permission = payload.dmPermission;
 		this.options = payload.options;
 		this.testMode = payload.testMode;
