@@ -1,11 +1,7 @@
 import { Command, CommandPayload } from "@moderation/framework";
-import {
-	ApplicationCommandOptionType,
-	ChatInputCommandInteraction,
-	GuildMember,
-	PermissionFlagsBits,
-} from "discord.js";
+import { ApplicationCommandOptionType, ChatInputCommandInteraction, PermissionFlagsBits } from "discord.js";
 import { Emoji } from "../../utils/constants.js";
+import { ValidatorManager } from "../../utils/ValidatorManager.js";
 
 export default class BanCommand extends Command<CommandPayload> {
 	public constructor() {
@@ -13,6 +9,7 @@ export default class BanCommand extends Command<CommandPayload> {
 			name: "ban",
 			description: "Remove a member from the server with a ban.",
 			userPermissions: [PermissionFlagsBits.BanMembers],
+			botPermissions: [PermissionFlagsBits.BanMembers],
 			options: [
 				{
 					name: "target",
@@ -27,9 +24,13 @@ export default class BanCommand extends Command<CommandPayload> {
 
 	public async chatInput(interaction: ChatInputCommandInteraction) {
 		const target = interaction.options.getUser("target", true);
-		const member = (await interaction.guild?.members.fetch(target.id)) as GuildMember;
 
-		await member.ban();
+		const validation = await new ValidatorManager(interaction, target).moderation();
+		if (!validation) return;
+
+		const member = await interaction.guild?.members.fetch(target.id).catch(() => null);
+
+		await member?.ban();
 
 		await interaction.reply({
 			content: `${Emoji.Success} User ${target} has been successfully banned from the server.`,
