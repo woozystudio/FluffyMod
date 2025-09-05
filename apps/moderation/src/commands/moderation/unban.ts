@@ -1,5 +1,10 @@
 import { Command, CommandPayload } from "@moderation/framework";
-import { ApplicationCommandOptionType, ChatInputCommandInteraction, PermissionFlagsBits } from "discord.js";
+import {
+	ApplicationCommandOptionType,
+	ChatInputCommandInteraction,
+	MessageFlags,
+	PermissionFlagsBits,
+} from "discord.js";
 import { Emoji } from "../../utils/constants.js";
 
 export default class UnBanCommand extends Command<CommandPayload> {
@@ -16,16 +21,28 @@ export default class UnBanCommand extends Command<CommandPayload> {
 					required: true,
 				},
 			],
-			testMode: true,
+			testMode: false,
 		});
 	}
 
 	public async chatInput(interaction: ChatInputCommandInteraction) {
 		const id = interaction.options.getString("id", true);
-		await interaction.guild?.bans.remove(id);
+		const searchBan = await interaction.guild?.bans.fetch(id).catch(() => undefined);
 
-		await interaction.reply({
-			content: `${Emoji.Success} User <@${id}> (\`${id}\`) has been successfully banned from the server.`,
-		});
+		if (searchBan === undefined) {
+			await interaction.reply({
+				content: `${Emoji.Error} The provided ID is not banned from the server.`,
+				flags: MessageFlags.Ephemeral,
+			});
+
+			return;
+		} else {
+			await interaction.guild?.bans.remove(id);
+
+			await interaction.reply({
+				content: `${Emoji.Success} User <@${id}> (\`${id}\`) has been successfully banned from the server.`,
+				flags: MessageFlags.Ephemeral,
+			});
+		}
 	}
 }
