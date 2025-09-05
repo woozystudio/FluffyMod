@@ -60,7 +60,7 @@ export class ValidatorManager {
 			return false;
 		}
 
-		if (!member.bannable || !member.kickable || !member.moderatable) {
+		if (!member.bannable || !member.kickable) {
 			await this.interaction.reply({
 				content: `${Emoji.Error} I can't penalize this user because they have a higher permission than me.`,
 				flags: MessageFlags.Ephemeral,
