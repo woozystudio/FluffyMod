@@ -24,6 +24,7 @@ export default class ChatInputCommandValidator extends Event<EventPayload, keyof
 						content: `${Emoji.Error} I do not have sufficient permissions to perform this action. ${getPermissionName(
 							command.bot_member_permissions || [],
 						)}`,
+						flags: MessageFlags.Ephemeral,
 					});
 					return;
 				}
