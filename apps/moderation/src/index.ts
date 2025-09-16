@@ -1,4 +1,4 @@
-import { ModerationClient } from "@moderation/framework";
+import { ModerationClient } from "@foxy/framework";
 import { GatewayIntentBits } from "discord.js";
 import "dotenv/config";
 import { connect } from "mongoose";

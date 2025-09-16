@@ -1,12 +1,12 @@
 {
-	"name": "@moderation/moderation",
+	"name": "@foxy/foxy",
 	"version": "0.0.0",
 	"description": "",
 	"scripts": {
 		"build": "yarn workspaces foreach -Apt run build",
 		"clean": "yarn workspaces foreach -Apt run clean",
 		"lint": "yarn workspaces foreach -Apt run lint",
-		"dev": "yarn workspace moderation run dev"
+		"dev": "yarn workspace foxy run dev"
 	},
 	"type": "module",
 	"keywords": [],
@@ -20,12 +20,12 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/woozystudio/Moderation.git"
+		"url": "git+https://github.com/woozystudio/Foxy.git"
 	},
 	"bugs": {
-		"url": "https://github.com/woozystudio/Moderation/issues"
+		"url": "https://github.com/woozystudio/Foxy/issues"
 	},
-	"homepage": "https://github.com/woozystudio/Moderation#readme",
+	"homepage": "https://github.com/woozystudio/Foxy#readme",
 	"workspaces": [
 		"apps/*",
 		"packages/*"

@@ -1,5 +1,5 @@
 {
-	"name": "moderation",
+	"name": "foxy",
 	"version": "0.1.0",
 	"description": "",
 	"scripts": {
@@ -8,17 +8,17 @@
 		"build:esm": "swc ./src --out-dir ./dist",
 		"build": "yarn build:clean && yarn build:check && yarn build:esm",
 		"start": "env-cmd node --enable-source-maps ./dist/index.js",
-		"dev:framework": "yarn workspace @moderation/framework run build && yarn build && yarn start",
+		"dev:framework": "yarn workspace @foxy/framework run build && yarn build && yarn start",
 		"start-build": "yarn build && yarn start",
-		"dev": "tsc-watch --onSuccess \"yarn workspace moderation run start-build\""
+		"dev": "tsc-watch --onSuccess \"yarn workspace foxy run start-build\""
 	},
 	"type": "module",
 	"keywords": [],
 	"author": "WoozyStudio <woozystudiocontact@gmail.com>",
 	"license": "UNLICENSED",
 	"dependencies": {
-		"@moderation/framework": "workspace:^",
-		"@moderation/utils": "workspace:^",
+		"@foxy/framework": "workspace:^",
+		"@foxy/utils": "workspace:^",
 		"@naval-base/ms": "^3.1.0",
 		"discord.js": "14.21.0",
 		"dotenv": "17.2.1",

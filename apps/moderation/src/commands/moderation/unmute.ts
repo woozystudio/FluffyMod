@@ -1,4 +1,4 @@
-import { Command, CommandPayload } from "@moderation/framework";
+import { Command, CommandPayload } from "@foxy/framework";
 import { ApplicationCommandOptionType, ChatInputCommandInteraction, PermissionFlagsBits } from "discord.js";
 import RoleSetup from "../../database/RoleSetup.js";
 import { Emoji } from "../../utils/constants.js";

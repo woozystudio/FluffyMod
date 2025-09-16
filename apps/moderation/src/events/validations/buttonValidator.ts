@@ -1,4 +1,4 @@
-import { ModerationClient, Event, EventPayload } from "@moderation/framework";
+import { ModerationClient, Event, EventPayload } from "@foxy/framework";
 import { ButtonInteraction, ClientEvents, Events, MessageFlags } from "discord.js";
 
 export default class ButtonValidator extends Event<EventPayload, keyof ClientEvents> {

@@ -1,4 +1,4 @@
-import { Command, CommandPayload, ModerationClient } from "@moderation/framework";
+import { Command, CommandPayload, ModerationClient } from "@foxy/framework";
 import {
 	ApplicationCommandOptionType,
 	ChatInputCommandInteraction,

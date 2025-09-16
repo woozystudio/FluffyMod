@@ -1,7 +1,7 @@
-import { ModerationClient, Event, EventPayload } from "@moderation/framework";
+import { ModerationClient, Event, EventPayload } from "@foxy/framework";
 import { ChatInputCommandInteraction, ClientEvents, Events, MessageFlags } from "discord.js";
 import { Emoji } from "../../utils/constants.js";
-import { getPermissionName } from "@moderation/utils";
+import { getPermissionName } from "@foxy/utils";
 
 export default class ChatInputCommandValidator extends Event<EventPayload, keyof ClientEvents> {
 	public constructor() {

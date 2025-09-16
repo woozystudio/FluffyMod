@@ -1,4 +1,4 @@
-import { Command, CommandPayload } from "@moderation/framework";
+import { Command, CommandPayload } from "@foxy/framework";
 import { ApplicationCommandOptionType, ChatInputCommandInteraction, PermissionFlagsBits } from "discord.js";
 import { Emoji } from "../../utils/constants.js";
 import { ValidatorManager } from "../../utils/ValidatorManager.js";

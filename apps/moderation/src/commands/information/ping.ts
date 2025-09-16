@@ -1,4 +1,4 @@
-import { Command, CommandPayload } from "@moderation/framework";
+import { Command, CommandPayload } from "@foxy/framework";
 import { ChatInputCommandInteraction, MessageFlags } from "discord.js";
 
 export default class PingCommand extends Command<CommandPayload> {

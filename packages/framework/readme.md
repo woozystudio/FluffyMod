@@ -1,1 +1,1 @@
-# @moderation/framework
+# @foxy/framework

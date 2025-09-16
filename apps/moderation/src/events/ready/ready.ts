@@ -1,4 +1,4 @@
-import { Event, EventPayload } from "@moderation/framework";
+import { Event, EventPayload } from "@foxy/framework";
 import { ClientEvents, Events } from "discord.js";
 
 export default class Ready extends Event<EventPayload, keyof ClientEvents> {

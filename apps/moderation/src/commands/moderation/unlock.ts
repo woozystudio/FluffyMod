@@ -1,4 +1,4 @@
-import { Command, CommandPayload } from "@moderation/framework";
+import { Command, CommandPayload } from "@foxy/framework";
 import {
 	ApplicationCommandOptionType,
 	ChannelType,
