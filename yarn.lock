@@ -223,45 +223,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@foxy/foxy@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@foxy/foxy@workspace:."
-  dependencies:
-    "@biomejs/biome": "npm:2.2.0"
-    "@types/node": "npm:24.1.0"
-    typescript: "npm:5.8.3"
-  languageName: unknown
-  linkType: soft
-
-"@foxy/framework@workspace:^, @foxy/framework@workspace:packages/framework":
-  version: 0.0.0-use.local
-  resolution: "@foxy/framework@workspace:packages/framework"
-  dependencies:
-    "@discordjs/core": "npm:2.2.0"
-    "@discordjs/rest": "npm:2.5.1"
-    "@swc/cli": "npm:0.1.63"
-    "@swc/core": "npm:1.3.100"
-    "@types/node": "npm:24.1.0"
-    discord-api-types: "npm:0.38.18"
-    discord.js: "npm:14.21.0"
-    dotenv: "npm:17.2.1"
-    fs: "npm:0.0.1-security"
-    path: "npm:0.12.7"
-    typescript: "npm:5.8.3"
-  languageName: unknown
-  linkType: soft
-
-"@foxy/utils@workspace:^, @foxy/utils@workspace:packages/utils":
-  version: 0.0.0-use.local
-  resolution: "@foxy/utils@workspace:packages/utils"
-  dependencies:
-    "@swc/cli": "npm:0.1.63"
-    "@swc/core": "npm:1.3.100"
-    "@types/node": "npm:24.1.0"
-    typescript: "npm:5.8.3"
-  languageName: unknown
-  linkType: soft
-
 "@mole-inc/bin-wrapper@npm:^8.0.1":
   version: 8.0.1
   resolution: "@mole-inc/bin-wrapper@npm:8.0.1"
@@ -287,7 +248,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@naval-base/ms@npm:^3.1.0":
+"@naval-base/ms@npm:3.1.0":
   version: 3.1.0
   resolution: "@naval-base/ms@npm:3.1.0"
   checksum: 10c0/eb8b149e1963997c0bed7e51f480b9f47b8c60308e9a1526b58db7ce4f3f7a3c305a7431d02e6d0367c9b76485d5dbb38934500da20ce1098640c93470adc8ad
@@ -605,6 +566,21 @@ __metadata:
   version: 2.4.6
   resolution: "@vladfrangu/async_event_emitter@npm:2.4.6"
   checksum: 10c0/1fe634878902da584493ecb8e81c855436c002b215dd7c25c21780930fc5621ebe8eb79d5b899a56af0d1ea9ea9171e35175221e4438e2f56c67ce64d4b8a373
+  languageName: node
+  linkType: hard
+
+"@woozystudio/botten@npm:0.1.5":
+  version: 0.1.5
+  resolution: "@woozystudio/botten@npm:0.1.5"
+  dependencies:
+    "@discordjs/core": "npm:2.2.0"
+    "@discordjs/rest": "npm:2.5.1"
+    discord-api-types: "npm:0.38.18"
+    discord.js: "npm:14.21.0"
+    dotenv: "npm:17.2.1"
+    fs: "npm:0.0.1-security"
+    path: "npm:0.12.7"
+  checksum: 10c0/1d0dff9183746d31164cd4ef22d68c48091d811628b88cad0498f742c4298bfbbeb256e9d0849e019bf30b975322cb5df0376f04af2bbecb378bb6d08c99ee6c
   languageName: node
   linkType: hard
 
@@ -1034,16 +1010,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"foxy@workspace:apps/moderation":
+"fluffymod@workspace:.":
   version: 0.0.0-use.local
-  resolution: "foxy@workspace:apps/moderation"
+  resolution: "fluffymod@workspace:."
   dependencies:
-    "@foxy/framework": "workspace:^"
-    "@foxy/utils": "workspace:^"
-    "@naval-base/ms": "npm:^3.1.0"
+    "@biomejs/biome": "npm:2.2.0"
+    "@naval-base/ms": "npm:3.1.0"
     "@swc/cli": "npm:0.1.63"
     "@swc/core": "npm:1.3.100"
     "@types/node": "npm:24.1.0"
+    "@woozystudio/botten": "npm:0.1.5"
     discord.js: "npm:14.21.0"
     dotenv: "npm:17.2.1"
     env-cmd: "npm:10.1.0"
