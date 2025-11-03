@@ -1,4 +1,4 @@
-import { Command, CommandPayload } from "@woozystudio/botten";
+import { Command, CommandPayload } from "botten";
 import { ChatInputCommandInteraction, MessageFlags } from "discord.js";
 
 export default class PingCommand extends Command<CommandPayload> {

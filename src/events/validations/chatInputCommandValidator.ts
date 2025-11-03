@@ -1,7 +1,7 @@
-import { ModerationClient, Event, EventPayload } from "@woozystudio/botten";
+import { BottenClient, Event, EventPayload } from "botten";
 import { ChatInputCommandInteraction, ClientEvents, Events, MessageFlags } from "discord.js";
 import { Emoji } from "../../utils/constants.js";
-import { getPermissionName } from "@woozystudio/botten";
+import { getPermissionName } from "botten";
 
 export default class ChatInputCommandValidator extends Event<EventPayload, keyof ClientEvents> {
 	public constructor() {
@@ -11,7 +11,7 @@ export default class ChatInputCommandValidator extends Event<EventPayload, keyof
 		});
 	}
 
-	public async execute(client: ModerationClient, interaction: ChatInputCommandInteraction) {
+	public async execute(client: BottenClient, interaction: ChatInputCommandInteraction) {
 		if (!interaction.isChatInputCommand()) return;
 
 		const command = client.commands.get(interaction.commandName);

@@ -1,4 +1,4 @@
-import { ModerationClient } from "@woozystudio/botten";
+import { BottenClient } from "botten";
 import { GatewayIntentBits } from "discord.js";
 import "dotenv/config";
 import { connect } from "mongoose";
@@ -9,7 +9,7 @@ const commandsPath = path.join(path.dirname(fileURLToPath(import.meta.url)), "co
 const eventsPath = path.join(path.dirname(fileURLToPath(import.meta.url)), "events");
 const buttonsPath = path.join(path.dirname(fileURLToPath(import.meta.url)), "buttons");
 
-const client = new ModerationClient({
+const client = new BottenClient({
 	token: `${process.env.TOKEN}`,
 	id: `${process.env.CLIENT_ID}`,
 	guildId: `${process.env.GUILD_ID}`,

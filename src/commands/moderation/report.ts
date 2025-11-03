@@ -1,4 +1,4 @@
-import { Command, CommandPayload, ModerationClient } from "@woozystudio/botten";
+import { Command, CommandPayload, BottenClient } from "botten";
 import {
 	ApplicationCommandOptionType,
 	ChatInputCommandInteraction,
@@ -40,7 +40,7 @@ export default class ReportCommand extends Command<CommandPayload> {
 		});
 	}
 
-	public async chatInput(interaction: ChatInputCommandInteraction, client: ModerationClient) {
+	public async chatInput(interaction: ChatInputCommandInteraction, client: BottenClient) {
 		const target = interaction.options.getUser("target", true);
 		const reason = interaction.options.getString("reason", true);
 		const id = generateReportId();

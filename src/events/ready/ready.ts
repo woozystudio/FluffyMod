@@ -1,4 +1,4 @@
-import { Event, EventPayload } from "@woozystudio/botten";
+import { Event, EventPayload } from "botten";
 import { ClientEvents, Events } from "discord.js";
 
 export default class Ready extends Event<EventPayload, keyof ClientEvents> {

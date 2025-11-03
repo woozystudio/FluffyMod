@@ -1,4 +1,4 @@
-import { ModerationClient, Event, EventPayload } from "@woozystudio/botten";
+import { BottenClient, Event, EventPayload } from "botten";
 import { ButtonInteraction, ClientEvents, Events, MessageFlags } from "discord.js";
 
 export default class ButtonValidator extends Event<EventPayload, keyof ClientEvents> {
@@ -9,7 +9,7 @@ export default class ButtonValidator extends Event<EventPayload, keyof ClientEve
 		});
 	}
 
-	public async execute(client: ModerationClient, interaction: ButtonInteraction) {
+	public async execute(client: BottenClient, interaction: ButtonInteraction) {
 		if (!interaction.isButton()) return;
 
 		const button = client.buttons.get(interaction.customId);

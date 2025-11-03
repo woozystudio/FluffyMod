@@ -18,8 +18,8 @@
 	"private": true,
 	"dependencies": {
 		"@naval-base/ms": "3.1.0",
-		"@woozystudio/botten": "0.1.5",
-		"discord.js": "14.21.0",
+		"botten": "0.1.1",
+		"discord.js": "14.22.1",
 		"dotenv": "17.2.1",
 		"env-cmd": "10.1.0",
 		"mongoose": "8.18.0",

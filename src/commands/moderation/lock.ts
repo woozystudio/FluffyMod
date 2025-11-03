@@ -1,4 +1,4 @@
-import { Command, CommandPayload } from "@woozystudio/botten";
+import { Command, CommandPayload } from "botten";
 import {
 	ApplicationCommandOptionType,
 	ChannelType,

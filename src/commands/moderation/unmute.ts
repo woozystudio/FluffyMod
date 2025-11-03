@@ -1,4 +1,4 @@
-import { Command, CommandPayload } from "@woozystudio/botten";
+import { Command, CommandPayload } from "botten";
 import { ApplicationCommandOptionType, ChatInputCommandInteraction, PermissionFlagsBits } from "discord.js";
 import RoleSetup from "../../database/RoleSetup.js";
 import { Emoji } from "../../utils/constants.js";

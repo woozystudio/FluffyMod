@@ -1,4 +1,4 @@
-import { Command, CommandPayload, ModerationClient } from "@woozystudio/botten";
+import { Command, CommandPayload, BottenClient } from "botten";
 import {
 	ActionRowBuilder,
 	ButtonBuilder,
@@ -23,7 +23,7 @@ export default class BotInfoCommand extends Command<CommandPayload> {
 		});
 	}
 
-	public async chatInput(interaction: ChatInputCommandInteraction, client: ModerationClient) {
+	public async chatInput(interaction: ChatInputCommandInteraction, client: BottenClient) {
 		const bot = client.client.user as ClientUser;
 		const owner = await client.client.users.fetch(process.env.OWNER_ID as string);
 
