@@ -28,7 +28,7 @@ export default class WarningsCommand extends Command<CommandPayload> {
 					required: true,
 				},
 			],
-			testMode: true,
+			testMode: false,
 		});
 	}
 
