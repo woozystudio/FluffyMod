@@ -4,6 +4,7 @@ const warning = new Schema({
 	GuildID: String,
 	TargetID: String,
 	ModeratorID: String,
+	ModeratorUsername: String,
 	Reason: String,
 	CreatedAt: Number,
 	ID: Number,
