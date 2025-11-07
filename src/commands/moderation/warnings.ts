@@ -12,6 +12,7 @@ import {
 	ThumbnailBuilder,
 } from "discord.js";
 import Warning from "../../database/Warning.js";
+import { Emoji } from "../../utils/constants.js";
 
 export default class WarningsCommand extends Command<CommandPayload> {
 	constructor() {
@@ -43,6 +44,12 @@ export default class WarningsCommand extends Command<CommandPayload> {
 			GuildID: interaction.guild!.id,
 			TargetID: target.id,
 		});
+
+		if (warningCount === 0)
+			return void interaction.reply({
+				content: `${Emoji.Error} The user mentioned has no warnings.`,
+				flags: MessageFlags.Ephemeral,
+			});
 
 		const warnings = await Warning.find({
 			GuildID: interaction.guild!.id,
