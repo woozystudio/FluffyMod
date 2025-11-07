@@ -33,10 +33,13 @@ export default class WarningCommand extends Command<CommandPayload> {
 		const warningN = (await Warning.countDocuments({ TargetID: target.id })) + 1;
 		const createdAt = Math.floor(interaction.createdTimestamp / 1000);
 
+		// TODO: Add validations (e.g., prevent warning mods/admins)
+
 		await Warning.create({
 			GuildID: interaction.guild!.id,
 			TargetID: target.id,
 			ModeratorID: interaction.user.id,
+			ModeratorUsername: interaction.user.username,
 			Reason: reason,
 			ID: warningN,
 			CreatedAt: createdAt,
