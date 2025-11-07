@@ -3,6 +3,7 @@ import { model, Schema } from "mongoose";
 const warning = new Schema({
 	GuildID: String,
 	TargetID: String,
+	TargetUsername: String,
 	ModeratorID: String,
 	ModeratorUsername: String,
 	Reason: String,

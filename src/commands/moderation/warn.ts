@@ -38,6 +38,7 @@ export default class WarningCommand extends Command<CommandPayload> {
 		await Warning.create({
 			GuildID: interaction.guild!.id,
 			TargetID: target.id,
+			TargetUsername: target.username,
 			ModeratorID: interaction.user.id,
 			ModeratorUsername: interaction.user.username,
 			Reason: reason,
