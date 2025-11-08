@@ -32,7 +32,14 @@ export default class ChatInputCommandValidator extends Event<EventPayload, keyof
 
 			if (interaction.isChatInputCommand()) {
 				try {
-					await command.chatInput(interaction, client);
+					const subCommandGroup = interaction.options.getSubcommandGroup(false);
+					const subCommand = `${interaction.commandName}${subCommandGroup ? `.${subCommandGroup}` : ""}.${
+						interaction.options.getSubcommand(false) || ""
+					}`;
+
+					return (
+						client.subCommands.get(subCommand)?.chatInput(interaction, client) || command.chatInput(interaction, client)
+					);
 				} catch (error) {
 					console.error(`Error executing command ${interaction.commandName}:`, error);
 					await interaction.reply({
