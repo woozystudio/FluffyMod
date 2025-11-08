@@ -51,7 +51,7 @@ export default class WarnInfo extends Command<CommandPayload> {
 
 		const header = new TextDisplayBuilder().setContent(`## \`⚠️\` Warning #${data?.ID}`);
 		const description = new TextDisplayBuilder().setContent(
-			`ID: **${data?.ID}**\nIssued by: \`${data?.ModeratorUsername}\` ${data?.ModeratorID}\nMember: \`${data?.TargetUsername}\` (${data?.TargetID})\nDate: <t:${data?.CreatedAt}:F> (<t:${data?.CreatedAt}:R>)\nReason: \`\`\`${data?.Reason}\`\`\``,
+			`ID: **${data?.ID}**\nIssued by: \`${data?.ModeratorUsername}\` (${data?.ModeratorID})\nMember: \`${data?.TargetUsername}\` (${data?.TargetID})\nDate: <t:${data?.CreatedAt}:F> (<t:${data?.CreatedAt}:R>)\nReason: \`\`\`${data?.Reason}\`\`\``,
 		);
 		const thumbnail = new ThumbnailBuilder().setURL(target.displayAvatarURL({ size: 4096, extension: "png" }));
 
