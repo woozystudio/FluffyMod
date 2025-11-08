@@ -20,7 +20,7 @@ export default class WarningCommand extends Command<CommandPayload> {
 					name: "reason",
 					description: "Reason for the warning.",
 					type: ApplicationCommandOptionType.String,
-					required: false,
+					required: true,
 				},
 			],
 			testMode: false,
@@ -29,7 +29,7 @@ export default class WarningCommand extends Command<CommandPayload> {
 
 	override async chatInput(interaction: ChatInputCommandInteraction) {
 		const target = interaction.options.getUser("target", true);
-		const reason = interaction.options.getString("reason") || "No reason provided";
+		const reason = interaction.options.getString("reason", true);
 		const warningN = (await Warning.countDocuments({ TargetID: target.id })) + 1;
 		const createdAt = Math.floor(interaction.createdTimestamp / 1000);
 
