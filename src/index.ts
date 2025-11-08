@@ -6,6 +6,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const commandsPath = path.join(path.dirname(fileURLToPath(import.meta.url)), "commands");
+const subCommandsPath = path.join(path.dirname(fileURLToPath(import.meta.url)), "subCommands");
 const eventsPath = path.join(path.dirname(fileURLToPath(import.meta.url)), "events");
 const buttonsPath = path.join(path.dirname(fileURLToPath(import.meta.url)), "buttons");
 
@@ -21,6 +22,7 @@ const client = new BottenClient({
 	],
 
 	commandsPath: commandsPath,
+	subCommandsPath: subCommandsPath,
 	eventsPath: eventsPath,
 	buttonsPath: buttonsPath,
 });
