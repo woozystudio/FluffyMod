@@ -1,6 +1,7 @@
 import { Command, CommandPayload } from "botten";
 import {
 	ApplicationCommandOptionType,
+	ChannelType,
 	ChatInputCommandInteraction,
 	MessageFlags,
 	PermissionFlagsBits,
@@ -8,6 +9,7 @@ import {
 import roleSetup from "../../database/RoleSetup.js";
 import { Emoji } from "../../utils/constants.js";
 import ReportSetup from "../../database/ReportSetup.js";
+import TicketSetup from "../../database/TicketSetup.js";
 
 export default class ConfigCommand extends Command<CommandPayload> {
 	public constructor() {
@@ -42,6 +44,20 @@ export default class ConfigCommand extends Command<CommandPayload> {
 						},
 					],
 				},
+				{
+					name: "ticketing",
+					description: "Add the ticketing system to your server.",
+					type: ApplicationCommandOptionType.Subcommand,
+					options: [
+						{
+							name: "category",
+							description: "Select the ticket category.",
+							type: ApplicationCommandOptionType.Channel,
+							channel_types: [ChannelType.GuildCategory],
+							required: true,
+						},
+					],
+				},
 			],
 			testMode: false,
 		});
@@ -56,7 +72,7 @@ export default class ConfigCommand extends Command<CommandPayload> {
 
 				const muteData = await roleSetup.findOneAndUpdate(
 					{ GuildID: interaction.guildId },
-					{ RoleID: role.id },
+					{ GuildID: interaction.guildId, RoleID: role.id },
 					{ new: true, upsert: true },
 				);
 				if (!muteData) return;
@@ -72,7 +88,7 @@ export default class ConfigCommand extends Command<CommandPayload> {
 
 				const reportData = await ReportSetup.findOneAndUpdate(
 					{ GuildID: interaction.guildId },
-					{ ChannelID: channel.id },
+					{ GuildID: interaction.guildId, ChannelID: channel.id },
 					{ new: true, upsert: true },
 				);
 				if (!reportData) return;
@@ -81,6 +97,28 @@ export default class ConfigCommand extends Command<CommandPayload> {
 					content: `${Emoji.Success} The reporting system has been configured correctly on the server.`,
 					flags: MessageFlags.Ephemeral,
 				});
+				break;
+
+			case "ticketing":
+				const category = interaction.options.getChannel("category", true);
+
+				const ticketData = await TicketSetup.findOneAndReplace(
+					{
+						GuildID: interaction.guildId,
+					},
+					{ GuildID: interaction.guildId, ParentID: category.id },
+					{
+						new: true,
+						upsert: true,
+					},
+				);
+				if (!ticketData) return;
+
+				await interaction.reply({
+					content: `${Emoji.Success} The ticketing system has been configured correctly on the server.`,
+					flags: MessageFlags.Ephemeral,
+				});
+
 				break;
 
 			default:
