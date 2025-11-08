@@ -57,7 +57,7 @@ export default class WarningsCommand extends Command<CommandPayload> {
 		});
 
 		const header = new TextDisplayBuilder().setContent(`## Warnings for @${target.username}`);
-		const description = new TextDisplayBuilder().setContent(`Total warnings: **${warningCount}**`);
+		const description = new TextDisplayBuilder().setContent(`\`⚠️\` Total warnings: **${warningCount}**`);
 		const thumbnail = new ThumbnailBuilder().setURL(target.displayAvatarURL({ size: 4096, extension: "png" }));
 		const separator = new SeparatorBuilder().setSpacing(SeparatorSpacingSize.Large);
 
