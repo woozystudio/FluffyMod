@@ -81,11 +81,15 @@ export default class TicketCommand extends Command<CommandPayload> {
 
 					await interaction.reply({
 						content: `${Emoji.Success} Your ticket was successfully created in the ${ch} channel.`,
+						flags: [MessageFlags.Ephemeral],
 					});
 				});
 		} catch (error) {
 			console.error(error);
-			await interaction.reply({ content: `${Emoji.Error} An error occurred while creating the ticket.` });
+			await interaction.reply({
+				content: `${Emoji.Error} An error occurred while creating the ticket.`,
+				flags: [MessageFlags.Ephemeral],
+			});
 		}
 	}
 }
