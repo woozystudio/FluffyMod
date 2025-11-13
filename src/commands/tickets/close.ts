@@ -38,6 +38,15 @@ export default class CloseCommand extends Command<CommandPayload> {
 		if (!data) return void interaction.reply({ content: `${Emoji.Error} Ticket system is not set up in this server.` });
 
 		try {
+			const closingEmbed = new EmbedBuilder()
+				.setColor(Color.Success)
+				.setDescription(
+					`${Emoji.Success} The ticket will be closed and the channel will be deleted in ${time(
+						Math.floor(Date.now() / 1000) + 5,
+						"R",
+					)}.`,
+				);
+
 			if (!ticketId) {
 				// TODO: Create this system using the channel ID rather than the ticket ID
 
@@ -66,16 +75,7 @@ export default class CloseCommand extends Command<CommandPayload> {
 				}
 
 				await interaction.reply({
-					embeds: [
-						new EmbedBuilder()
-							.setColor(Color.Success)
-							.setDescription(
-								`${Emoji.Success} The ticket will be closed and the channel will be deleted in ${time(
-									Math.floor(Date.now() / 1000) + 5,
-									"R",
-								)}.`,
-							),
-					],
+					embeds: [closingEmbed],
 				});
 
 				setTimeout(async () => {
@@ -100,16 +100,7 @@ export default class CloseCommand extends Command<CommandPayload> {
 				}
 
 				await interaction.reply({
-					embeds: [
-						new EmbedBuilder()
-							.setColor(Color.Success)
-							.setDescription(
-								`${Emoji.Success} The ticket will be closed and the channel will be deleted in ${time(
-									Math.floor(Date.now() / 1000) + 5,
-									"R",
-								)}.`,
-							),
-					],
+					embeds: [closingEmbed],
 				});
 
 				setTimeout(async () => {
