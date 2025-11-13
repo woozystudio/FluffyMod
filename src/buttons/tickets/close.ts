@@ -1,5 +1,5 @@
 import { Button, ButtonPayload } from "botten";
-import { ButtonInteraction, EmbedBuilder, TextChannel, time } from "discord.js";
+import { ButtonInteraction, EmbedBuilder, MessageFlags, TextChannel, time } from "discord.js";
 import { Color, Emoji } from "../../utils/constants.js";
 import Ticket from "../../database/Ticket.js";
 
@@ -30,7 +30,7 @@ export default class CloseTicketButton extends Button<ButtonPayload> {
 		if (!channel) {
 			return void interaction.reply({
 				content: `${Emoji.Error} The channel for the specified ticket ID could not be found.`,
-				ephemeral: false,
+				flags: [MessageFlags.Ephemeral],
 			});
 		}
 
