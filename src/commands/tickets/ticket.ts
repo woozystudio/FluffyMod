@@ -1,5 +1,8 @@
 import { BottenClient, Command, CommandPayload } from "botten";
 import {
+	ActionRowBuilder,
+	ButtonBuilder,
+	ButtonStyle,
 	ChannelType,
 	ChatInputCommandInteraction,
 	ContainerBuilder,
@@ -60,6 +63,7 @@ export default class TicketCommand extends Command<CommandPayload> {
 						ChannelID: ch.id,
 						CreatedAt: createdAt,
 						Locked: false,
+						Closing: false,
 					});
 
 					const header = new TextDisplayBuilder().setContent(`## @${interaction.user.username}'s ticket.`);
@@ -73,9 +77,17 @@ export default class TicketCommand extends Command<CommandPayload> {
 						.setThumbnailAccessory(thumbnail);
 					const container = new ContainerBuilder().addSectionComponents(section);
 
+					const buttons = new ActionRowBuilder<ButtonBuilder>().addComponents(
+						new ButtonBuilder()
+							.setCustomId("ticket-close")
+							.setLabel("Close")
+							.setEmoji("🔒")
+							.setStyle(ButtonStyle.Secondary),
+					);
+
 					await ch.send({
 						flags: [MessageFlags.IsComponentsV2],
-						components: [container],
+						components: [container, buttons],
 						allowedMentions: { parse: [] },
 					});
 
