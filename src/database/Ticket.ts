@@ -8,7 +8,7 @@ const ticket = new Schema({
 	CreatedAt: Number,
 	LockedAt: Number,
 	Locked: Boolean,
-	ClosedBy: String,
+	Closing: Boolean,
 
 	// TODO: claim system and lock system
 });
