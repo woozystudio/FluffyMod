@@ -43,7 +43,7 @@ export default class CloseCommand extends Command<CommandPayload> {
 
 				const intChannel = (await interaction.guild?.channels.fetch(interaction.channelId)) as TextChannel;
 
-				const allTickets = await Ticket.find({ GuildID: interaction.guild!.id });
+				const allTickets = await Ticket.find({ GuildID: interaction.guild!.id, Locked: false });
 
 				if (!allTickets.length) {
 					return void interaction.reply({
@@ -83,10 +83,10 @@ export default class CloseCommand extends Command<CommandPayload> {
 					await Ticket.deleteOne({ GuildID: interaction.guild!.id, ChannelID: intChannel.id });
 				}, 5000);
 			} else {
-				const ticketData = await Ticket.findOne({ GuildID: interaction.guild!.id, ID: ticketId });
+				const ticketData = await Ticket.findOne({ GuildID: interaction.guild!.id, Locked: false, ID: ticketId });
 				if (!ticketData) {
 					return void interaction.reply({
-						content: `${Emoji.Error} The specified ticket ID does not exist.`,
+						content: `${Emoji.Error} The specified ticket ID does not exist or is locked.`,
 						ephemeral: false,
 					});
 				}

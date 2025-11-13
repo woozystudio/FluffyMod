@@ -6,8 +6,8 @@ const ticket = new Schema({
 	TargetID: String,
 	ChannelID: String,
 	CreatedAt: Number,
-	ClosedAt: Number,
-	Closed: Boolean,
+	LockedAt: Number,
+	Locked: Boolean,
 	ClosedBy: String,
 
 	// TODO: claim system and lock system
