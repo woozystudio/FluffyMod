@@ -20,7 +20,7 @@ export default class TicketCommand extends Command<CommandPayload> {
 			description: "Create a support ticket",
 			botPermissions: [PermissionFlagsBits.ManageChannels],
 			dmPermission: false,
-			testMode: true,
+			testMode: false,
 		});
 	}
 
@@ -59,7 +59,7 @@ export default class TicketCommand extends Command<CommandPayload> {
 						TargetID: interaction.user.id,
 						ChannelID: ch.id,
 						CreatedAt: createdAt,
-						Closed: false,
+						Locked: false,
 					});
 
 					const header = new TextDisplayBuilder().setContent(`## @${interaction.user.username}'s ticket.`);
