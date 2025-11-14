@@ -18,7 +18,7 @@
 	"private": true,
 	"dependencies": {
 		"@naval-base/ms": "3.1.0",
-		"botten": "0.2.2",
+		"botten": "0.3.1",
 		"del-cli": "7.0.0",
 		"discord.js": "14.22.1",
 		"dotenv": "17.2.1",
